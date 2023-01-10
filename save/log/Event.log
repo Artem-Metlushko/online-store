@@ -1,7 +1,14 @@
-2023-01-07 22:13:38 INFO  MenuMain:28 -  Choose (1) for registration
+2023-01-10 14:54:28 INFO  MenuMain:29 -  Choose (1) for registration
  Choose (2) for sign in
 
-2023-01-07 22:13:48 INFO  MenuMain:69 - Please enter (1) or (2)
-2023-01-07 22:13:52 INFO  MenuMain:69 - Please enter (1) or (2)
-2023-01-07 22:13:54 INFO  ClientService:58 - Sign in
-2023-01-07 22:13:54 INFO  ClientService:59 - Login :
+2023-01-10 14:54:34 INFO  UserService:58 - Sign in
+2023-01-10 14:54:34 INFO  UserService:59 - Login :
+2023-01-10 14:54:36 INFO  UserService:61 - Password
+2023-01-10 14:54:37 INFO  MenuSeller:27 -  
+ 
+ Choose (1) add product to catalog
+ Choose (2) show catalog of products
+ Choose (3) remove product
+ Choose (4) update product
+ Choose (5) exit
+

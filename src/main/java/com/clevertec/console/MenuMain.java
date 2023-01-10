@@ -1,6 +1,6 @@
 package com.clevertec.console;
 
-import com.clevertec.console.service.ClientService;
+import com.clevertec.console.service.UserService;
 import com.clevertec.entity.Client;
 import com.clevertec.entity.Seller;
 import com.clevertec.entity.User;
@@ -8,6 +8,7 @@ import com.clevertec.entity.util.Role;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 import static lombok.AccessLevel.PRIVATE;
@@ -22,7 +23,7 @@ public class MenuMain {
     private static final MenuClient menuClient = MenuClient.getInstance();
     private static final MenuSeller menuSeller = MenuSeller.getInstance();
 
-    private static final ClientService clientService = ClientService.getInstance();
+    private static final UserService clientService = UserService.getInstance();
 
     public static void showMainMenu() {
         log.info("""
@@ -43,20 +44,19 @@ public class MenuMain {
                     int secondRequest = scanner.nextInt();
                     switch (secondRequest) {
                         case 1 -> {
-                            User user = clientService.registration(scanner);
+                            User user = clientService.registration(scanner,new Client());
                             menuClient.showClientMenu(scanner, user);
                         }
                         case 2 -> {
-//
-                            User seller = new Seller();
-                            menuSeller.showSellerMenu(scanner, seller);
+                            User user = clientService.registration(scanner,new Seller());
+                            menuSeller.showSellerMenu(scanner, user);
                         }
                     }
                 }
                 case "2" -> {
-
-                        if(clientService.verification(scanner).isPresent()) {
-                            Client user = clientService.verification(scanner).get();
+                    Optional<User> verification = clientService.verification(scanner);
+                    if(verification.isPresent()) {
+                            User user = verification.get();
                             if (Role.CLIENT.equals(user.getRole())) {
                                 menuClient.showClientMenu(scanner, user);
                             } else if (Role.SELLER.equals(user.getRole())) {

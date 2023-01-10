@@ -21,7 +21,7 @@ public class MenuClient {
     private static final ProductInBasketService productInBasketService = ProductInBasketService.getInstance();
     private static final ProductService productService = ProductService.getInstance();
     private static final BasketService basketService = BasketService.getInstance();
-    private static final ClientService clientService = ClientService.getInstance();
+    private static final UserService clientService = UserService.getInstance();
 
     private static final DiscountService discountService = DiscountService.getInstance();
     public void showClientMenu(Scanner scanner, User user) {
